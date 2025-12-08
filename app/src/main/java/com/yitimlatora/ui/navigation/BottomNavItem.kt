@@ -10,12 +10,12 @@ sealed class BottomNavItem(
     val icon: ImageVector
 ) {
     object Home : BottomNavItem(Screen.Home, "בית", Icons.Default.Home)
-    object Browse : BottomNavItem(Screen.Browse, "עיון", Icons.Default.Public)
-    object Bookmarks : BottomNavItem(Screen.Bookmarks, "סימניות", Icons.Default.Bookmark)
-    object Settings : BottomNavItem(Screen.Settings, "הגדרות", Icons.Default.Settings)
+    object About : BottomNavItem(Screen.About, "אודות", Icons.Default.Info)
+    object Contact : BottomNavItem(Screen.Contact, "צור קשר", Icons.Default.Email)
+    object Partner : BottomNavItem(Screen.WebView, "היה שותף", Icons.Default.Favorite)
     
     companion object {
-        val items = listOf(Home, Browse, Bookmarks, Settings)
+        val items = listOf(Home, About, Contact, Partner)
     }
 }
 

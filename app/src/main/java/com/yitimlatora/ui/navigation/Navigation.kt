@@ -19,6 +19,14 @@ fun Navigation(navController: NavHostController) {
             HomeScreen(navController)
         }
         
+        composable(Screen.About.route) {
+            AboutScreen(navController)
+        }
+        
+        composable(Screen.Contact.route) {
+            ContactScreen(navController)
+        }
+        
         composable(Screen.Browse.route) {
             BrowseScreen()
         }

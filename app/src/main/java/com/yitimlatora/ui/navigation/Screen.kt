@@ -2,6 +2,8 @@ package com.yitimlatora.ui.navigation
 
 sealed class Screen(val route: String) {
     object Home : Screen("home")
+    object About : Screen("about")
+    object Contact : Screen("contact")
     object Browse : Screen("browse")
     object Bookmarks : Screen("bookmarks")
     object Settings : Screen("settings")

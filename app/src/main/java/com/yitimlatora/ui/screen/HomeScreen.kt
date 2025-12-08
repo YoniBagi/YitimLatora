@@ -11,9 +11,11 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -21,10 +23,10 @@ import com.yitimlatora.R
 import com.yitimlatora.data.model.QuickLink
 import com.yitimlatora.ui.navigation.Screen
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavController) {
-    val quickLinks = remember {
+    CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+        val quickLinks = remember {
         listOf(
             QuickLink(
                 title = "עמוד הבית",
@@ -33,7 +35,31 @@ fun HomeScreen(navController: NavController) {
                 description = "דף הבית של עיתים לתורה"
             ),
             QuickLink(
-                title = "שיעורים",
+                title = "הלכות שבת",
+                url = "https://itim-latora.org/%D7%A9%D7%95%D7%9C%D7%97%D7%9F-%D7%A2%D7%A8%D7%95%D7%9A/%D7%90%D7%95%D7%A8%D7%97-%D7%97%D7%99%D7%99%D7%9D-%D7%94%D7%9C%D7%9B%D7%95%D7%AA-%D7%A9%D7%91%D7%AA/",
+                icon = Icons.Default.DateRange,
+                description = "הלכות שבת"
+            ),
+            QuickLink(
+                title = "הלכות ריבית",
+                url = "https://itim-latora.org/%D7%A9%D7%95%D7%9C%D7%97%D7%9F-%D7%A2%D7%A8%D7%95%D7%9A/%D7%99%D7%95%D7%A8%D7%94-%D7%93%D7%A2%D7%94-%D7%94%D7%9C%D7%9B%D7%95%D7%AA-%D7%A8%D7%91%D7%99%D7%AA/",
+                icon = Icons.Default.AccountBalance,
+                description = "הלכות ריבית"
+            ),
+            QuickLink(
+                title = "הלכות ברכות",
+                url = "https://itim-latora.org/%D7%A9%D7%95%D7%9C%D7%97%D7%9F-%D7%A2%D7%A8%D7%95%D7%9A/%D7%90%D7%95%D7%A8%D7%97-%D7%97%D7%99%D7%99%D7%9D/",
+                icon = Icons.Default.Star,
+                description = "הלכות ברכות"
+            ),
+            QuickLink(
+                title = "הלכות יום טוב",
+                url = "https://itim-latora.org/%D7%A9%D7%95%D7%9C%D7%97%D7%9F-%D7%A2%D7%A8%D7%95%D7%9A/%D7%90%D7%95%D7%A8%D7%97-%D7%97%D7%99%D7%99%D7%9D-%D7%94%D7%9C%D7%9B%D7%95%D7%AA-%D7%99%D7%95%D7%9D-%D7%98%D7%95%D7%91/",
+                icon = Icons.Default.Celebration,
+                description = "הלכות יום טוב"
+            ),
+            QuickLink(
+                title = "סדרות שיעורים",
                 url = "https://itim-latora.org/%D7%A9%D7%99%D7%A2%D7%95%D7%A8%D7%99%D7%9D/",
                 icon = Icons.Default.Psychology,
                 description = "סדרות שיעורים"
@@ -42,7 +68,7 @@ fun HomeScreen(navController: NavController) {
                 title = "ספרי הלכה",
                 url = "https://itim-latora.org/%D7%9B%D7%AA%D7%91%D7%99%D7%9D/%D7%A7%D7%98%D7%92%D7%95%D7%A8%D7%99%D7%94/%D7%A1%D7%A4%D7%A8%D7%99-%D7%94%D7%9C%D7%9B%D7%94/",
                 icon = Icons.AutoMirrored.Filled.Article,
-                description = "ספרי הלכה"
+                description = "ספרי הלכה מגוונים"
             ),
             QuickLink(
                 title = "סיכומים",
@@ -61,57 +87,42 @@ fun HomeScreen(navController: NavController) {
                 url = "https://itim-latora.org/%D7%9B%D7%AA%D7%91%D7%99%D7%9D/%D7%A7%D7%98%D7%92%D7%95%D7%A8%D7%99%D7%94/%D7%A1%D7%99%D7%9B%D7%95%D7%9E%D7%99%D7%9D-%D7%94%D7%9C%D7%9B%D7%94-%D7%9C%D7%9E%D7%A2%D7%A9%D7%94/",
                 icon = Icons.AutoMirrored.Filled.MenuBook,
                 description = "סיכומים הלכה למעשה"
-            ),
-            QuickLink(
-                title = "אודות",
-                url = "https://itim-latora.org/%D7%90%D7%95%D7%93%D7%95%D7%AA-%D7%94%D7%90%D7%AA%D7%A8/",
-                icon = Icons.Default.Info,
-                description = "אודות עיתים לתורה"
-            ),
-            QuickLink(
-                title = "צור קשר",
-                url = "https://itim-latora.org/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8/",
-                icon = Icons.Default.Email,
-                description = "יצירת קשר"
             )
         )
     }
     
-    Scaffold { paddingValues ->
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues),
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            item {
-                WelcomeCard()
-                Spacer(modifier = Modifier.height(8.dp))
-            }
-            
-            item {
-                Text(
-                    "גישה מהירה",
-                    style = MaterialTheme.typography.titleLarge,
-                    modifier = Modifier.padding(vertical = 8.dp)
-                )
-            }
-            
-            items(quickLinks) { link ->
-                QuickLinkCard(
-                    quickLink = link,
-                    onClick = {
-                        navController.navigate(Screen.WebView.createRoute(link.url))
-                    }
-                )
-            }
-            
-            item {
-                Spacer(modifier = Modifier.height(16.dp))
-                BrowseCard(navController)
-            }
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        item {
+            WelcomeCard()
+            Spacer(modifier = Modifier.height(8.dp))
         }
+        
+        item {
+            Text(
+                "גישה מהירה",
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier.padding(vertical = 8.dp)
+            )
+        }
+        
+        items(quickLinks) { link ->
+            QuickLinkCard(
+                quickLink = link,
+                onClick = {
+                    navController.navigate(Screen.WebView.createRoute(link.url))
+                }
+            )
+        }
+
+        item {
+            Spacer(modifier = Modifier.height(16.dp))
+            BrowseCard(navController)
+        }
+    }
     }
 }
 
@@ -189,7 +200,7 @@ fun QuickLinkCard(
                 )
             }
             Icon(
-                imageVector = Icons.Default.ChevronRight,
+                imageVector = Icons.Default.ChevronLeft,
                 contentDescription = "עבור",
                 tint = MaterialTheme.colorScheme.onSurfaceVariant
             )
