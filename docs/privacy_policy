@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מדיניות פרטיות - עיתים-לתורה</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            margin: 40px;
+            max-width: 900px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 60px;
+        }
+        .english {
+            direction: ltr;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h1>מדיניות פרטיות - עיתים-לתורה</h1>
+
+<div class="section">
+    <h2>עברית</h2>
+
+    <p>האפליקציה עיתים-לתורה מכבדת את פרטיות המשתמשים. מסמך זה מפרט את אופן הטיפול במידע בעת השימוש באפליקציה.</p>
+
+    <h3>איסוף מידע</h3>
+    <p>האפליקציה אינה אוספת כל מידע אישי או מידע מזהה מהמשתמשים.
+    אין שימוש במנגנוני מעקב, אנליטיקה, קבצי עוגיות או כל שירות צד שלישי העוקב אחר המשתמש.</p>
+
+    <h3>הרשאות</h3>
+    <p>האפליקציה אינה מבקשת כל הרשאה מהטלפון ואינה ניגשת לשום מידע המאוחסן במכשיר.</p>
+
+    <h3>שיתוף מידע עם צדדים שלישיים</h3>
+    <p>מכיוון שהאפליקציה אינה אוספת כל מידע, לא מתבצע שום שיתוף מידע עם צדדים שלישיים.</p>
+
+    <h3>אבטחת מידע</h3>
+    <p>האפליקציה פועלת באופן מקומי לחלוטין על מכשיר המשתמש ולכן אינה מעבירה מידע לשום שרת חיצוני.</p>
+
+    <h3>שינויים במדיניות</h3>
+    <p>במידה ויבוצעו שינויים במדיניות הפרטיות, המסמך יעודכן בעמוד זה.</p>
+
+    <h3>יצירת קשר</h3>
+    <p>לשאלות או פניות בנושא מדיניות הפרטיות ניתן לפנות לכתובת הדוא"ל:
+    <strong>your-email@example.com</strong></p>
+</div>
+
+<hr>
+
+<h1>Privacy Policy - Itim-LaTorah</h1>
+
+<div class="section english">
+    <h2>English</h2>
+
+    <p>The Itim-LaTorah app respects the privacy of its users. This document describes how information is handled when using the app.</p>
+
+    <h3>Information Collection</h3>
+    <p>The app does not collect any personal information or identifying data from users.
+    No tracking tools, analytics, cookies, or third-party monitoring services are used.</p>
+
+    <h3>Permissions</h3>
+    <p>The app does not request any device permissions and does not access any information stored on the user's device.</p>
+
+    <h3>Information Sharing</h3>
+    <p>Since the app does not collect any information, no data is shared with any third party.</p>
+
+    <h3>Data Security</h3>
+    <p>The app operates entirely locally on the user's device and does not transmit any data to external servers.</p>
+
+    <h3>Changes to This Policy</h3>
+    <p>If changes are made to the privacy policy, this page will be updated accordingly.</p>
+
+    <h3>Contact</h3>
+    <p>For questions or inquiries regarding this privacy policy, you can contact:
+    <strong>your-email@example.com</strong></p>
+</div>
+
+</body>
+</html>
