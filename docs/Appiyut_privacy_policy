@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appiyut Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for the Appiyut app" />
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .hero {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 13px;
+      color: var(--accent);
+      background: #eff6ff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    h1, h2, h3 { margin: 0 0 12px; }
+    h1 { font-size: 34px; }
+    h2 { font-size: 28px; margin-top: 8px; }
+    h3 { font-size: 20px; margin-top: 28px; }
+
+    p { margin: 0 0 14px; }
+
+    .sub {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    .section {
+      padding-top: 6px;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+    }
+
+    .section:first-of-type {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    ul {
+      margin: 8px 0 14px 22px;
+      padding: 0;
+    }
+
+    li { margin-bottom: 8px; }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .hebrew {
+      direction: rtl;
+      text-align: right;
+    }
+
+    .footer {
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+      margin-top: 18px;
+    }
+
+    .contact-box {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-top: 12px;
+    }
+
+    code.inline {
+      background: #eff6ff;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 640px) {
+      .hero, .card { padding: 22px; }
+      h1 { font-size: 28px; }
+      h2 { font-size: 24px; }
+      h3 { font-size: 18px; }
+      .wrap { padding: 18px 14px 40px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="badge">Appiyut</div>
+      <h1>Privacy Policy</h1>
+      <p class="sub">Last updated: <strong>12.03.2026</strong></p>
+      <p>
+        This page describes how the Appiyut app handles information, third-party content,
+        and user privacy.
+      </p>
+    </section>
+
+    <section class="card" aria-labelledby="english-title">
+      <h2 id="english-title">English</h2>
+      <p>
+        Welcome to the Appiyut application (the “App”). We respect your privacy and are committed to
+        protecting it. This Privacy Policy explains what information may be collected when you use the
+        App and how it is used.
+      </p>
+
+      <div class="section">
+        <h3>1. Information We Collect</h3>
+        <p>
+          The App does not collect personally identifiable information such as your name, email address,
+          phone number, or physical address.
+        </p>
+        <p>
+          However, certain non-personal technical information may be collected automatically by the
+          operating system or third-party services, such as:
+        </p>
+        <ul>
+          <li>Device type</li>
+          <li>Operating system version</li>
+          <li>General usage statistics</li>
+        </ul>
+        <p>
+          This information is used solely to improve the functionality and user experience of the App.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>2. Content Displayed in the App</h3>
+        <p>
+          The App presents publicly available information about cantors, including names and images.
+          It may also display information about upcoming events related to cantorial music and liturgical poetry.
+        </p>
+        <p>
+          This information is collected from public sources or provided by relevant contributors for the
+          purpose of being displayed within the App.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>3. YouTube Integration</h3>
+        <p>
+          The App displays and plays videos from YouTube using publicly available content and YouTube services.
+        </p>
+        <p>
+          Use of YouTube within the App is subject to Google’s and YouTube’s Terms of Service and Privacy Policy.
+        </p>
+        <p>
+          You can read more here:
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>4. Third-Party Services</h3>
+        <p>
+          The App may contain links to third-party services or display content provided by external platforms
+          such as YouTube. These services are operated by third parties, and we are not responsible for their
+          privacy practices.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>5. Data Security</h3>
+        <p>
+          We take reasonable measures to protect the integrity and security of the App and its services.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>6. Children’s Privacy</h3>
+        <p>
+          The App is not specifically directed at children under the age of 13 and does not knowingly collect
+          personal information from children.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>7. Changes to This Privacy Policy</h3>
+        <p>
+          We may update this Privacy Policy from time to time. Any changes will be reflected on this page with
+          an updated revision date.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>8. Contact</h3>
+        <p>
+          If you have any questions regarding this Privacy Policy, you may contact the developer at:
+        </p>
+        <div class="contact-box">yonibagi.app@gmail.com</div>
+        <p>
+          By using the App, you agree to this Privacy Policy.
+        </p>
+      </div>
+    </section>
+
+    <section class="card hebrew" aria-labelledby="hebrew-title">
+      <h2 id="hebrew-title">עברית</h2>
+      <p>
+        ברוכים הבאים לאפליקציית Appiyut (להלן: "האפליקציה"). אנו מכבדים את פרטיות המשתמשים ומחויבים לשמור עליה.
+        מסמך זה מסביר איזה מידע עשוי להיאסף בעת השימוש באפליקציה וכיצד נעשה בו שימוש.
+      </p>
+
+      <div class="section">
+        <h3>1. מידע שאנו אוספים</h3>
+        <p>
+          האפליקציה אינה אוספת מידע אישי מזהה כגון שם, כתובת דוא"ל, מספר טלפון או כתובת פיזית.
+        </p>
+        <p>
+          עם זאת, ייתכן שמידע טכני שאינו מזהה אישית ייאסף באופן אוטומטי על ידי מערכת ההפעלה או שירותי צד שלישי, כגון:
+        </p>
+        <ul>
+          <li>סוג המכשיר</li>
+          <li>גרסת מערכת ההפעלה</li>
+          <li>סטטיסטיקות שימוש כלליות</li>
+        </ul>
+        <p>
+          מידע זה משמש אך ורק לשיפור תפקוד האפליקציה וחוויית המשתמש.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>2. התוכן המוצג באפליקציה</h3>
+        <p>
+          האפליקציה מציגה מידע פומבי על חזנים, לרבות שמות ותמונות. כמו כן, היא עשויה להציג מידע על אירועים קרובים
+          הקשורים לחזנות ולפיוט.
+        </p>
+        <p>
+          מידע זה נאסף ממקורות ציבוריים או נמסר על ידי גורמים רלוונטיים לצורך הצגתו באפליקציה.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>3. שילוב YouTube</h3>
+        <p>
+          האפליקציה מציגה ומנגנת סרטונים מ-YouTube באמצעות תוכן ציבורי ושירותי YouTube.
+        </p>
+        <p>
+          השימוש ב-YouTube במסגרת האפליקציה כפוף לתנאי השימוש ולמדיניות הפרטיות של Google ו-YouTube.
+        </p>
+        <p>
+          ניתן לקרוא עוד כאן:
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות של Google</a>
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>4. שירותי צד שלישי</h3>
+        <p>
+          האפליקציה עשויה לכלול קישורים לשירותי צד שלישי או להציג תוכן המסופק על ידי פלטפורמות חיצוניות כגון YouTube.
+          שירותים אלה מופעלים על ידי צדדים שלישיים, ואיננו אחראים למדיניות הפרטיות שלהם.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>5. אבטחת מידע</h3>
+        <p>
+          אנו נוקטים באמצעים סבירים לשמירה על שלמות האפליקציה ואבטחת השירותים שלה.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>6. פרטיות ילדים</h3>
+        <p>
+          האפליקציה אינה מיועדת במיוחד לילדים מתחת לגיל 13 ואינה אוספת ביודעין מידע אישי מילדים.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>7. שינויים במדיניות הפרטיות</h3>
+        <p>
+          אנו עשויים לעדכן מדיניות פרטיות זו מעת לעת. כל שינוי ישתקף בעמוד זה יחד עם תאריך עדכון מעודכן.
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>8. יצירת קשר</h3>
+        <p>
+          לכל שאלה בנוגע למדיניות פרטיות זו, ניתן ליצור קשר עם מפתח האפליקציה בכתובת:
+        </p>
+        <div class="contact-box">yonibagi.app@gmail.com</div>
+        <p>
+          השימוש באפליקציה מהווה הסכמה למדיניות פרטיות זו.
+        </p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
