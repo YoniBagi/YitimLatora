@@ -1,5 +1,6 @@
 package com.yitimlatora.ui.screen
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -31,61 +32,61 @@ fun HomeScreen(navController: NavController) {
             QuickLink(
                 title = "עמוד הבית",
                 url = "https://itim-latora.org",
-                icon = Icons.Default.Home,
+                icon = R.drawable.home_page,
                 description = "דף הבית של עיתים לתורה"
             ),
             QuickLink(
                 title = "הלכות שבת",
                 url = "https://itim-latora.org/%D7%A9%D7%95%D7%9C%D7%97%D7%9F-%D7%A2%D7%A8%D7%95%D7%9A/%D7%90%D7%95%D7%A8%D7%97-%D7%97%D7%99%D7%99%D7%9D-%D7%94%D7%9C%D7%9B%D7%95%D7%AA-%D7%A9%D7%91%D7%AA/",
-                icon = Icons.Default.DateRange,
+                icon = R.drawable.shabat,
                 description = "הלכות שבת"
             ),
             QuickLink(
                 title = "הלכות ריבית",
                 url = "https://itim-latora.org/%D7%A9%D7%95%D7%9C%D7%97%D7%9F-%D7%A2%D7%A8%D7%95%D7%9A/%D7%99%D7%95%D7%A8%D7%94-%D7%93%D7%A2%D7%94-%D7%94%D7%9C%D7%9B%D7%95%D7%AA-%D7%A8%D7%91%D7%99%D7%AA/",
-                icon = Icons.Default.AccountBalance,
+                icon = R.drawable.ribit,
                 description = "הלכות ריבית"
             ),
             QuickLink(
                 title = "הלכות ברכות",
                 url = "https://itim-latora.org/%D7%A9%D7%95%D7%9C%D7%97%D7%9F-%D7%A2%D7%A8%D7%95%D7%9A/%D7%90%D7%95%D7%A8%D7%97-%D7%97%D7%99%D7%99%D7%9D/",
-                icon = Icons.Default.Star,
+                icon = R.drawable.brachot,
                 description = "הלכות ברכות"
             ),
             QuickLink(
                 title = "הלכות יום טוב",
                 url = "https://itim-latora.org/%D7%A9%D7%95%D7%9C%D7%97%D7%9F-%D7%A2%D7%A8%D7%95%D7%9A/%D7%90%D7%95%D7%A8%D7%97-%D7%97%D7%99%D7%99%D7%9D-%D7%94%D7%9C%D7%9B%D7%95%D7%AA-%D7%99%D7%95%D7%9D-%D7%98%D7%95%D7%91/",
-                icon = Icons.Default.Celebration,
+                icon = R.drawable.yomtov,
                 description = "הלכות יום טוב"
             ),
             QuickLink(
                 title = "סדרות שיעורים",
                 url = "https://itim-latora.org/%D7%A9%D7%99%D7%A2%D7%95%D7%A8%D7%99%D7%9D/",
-                icon = Icons.Default.Psychology,
+                icon = R.drawable.halacha,
                 description = "סדרות שיעורים"
             ),
             QuickLink(
                 title = "ספרי הלכה",
                 url = "https://itim-latora.org/%D7%9B%D7%AA%D7%91%D7%99%D7%9D/%D7%A7%D7%98%D7%92%D7%95%D7%A8%D7%99%D7%94/%D7%A1%D7%A4%D7%A8%D7%99-%D7%94%D7%9C%D7%9B%D7%94/",
-                icon = Icons.AutoMirrored.Filled.Article,
+                icon = R.drawable.halacha,
                 description = "ספרי הלכה מגוונים"
             ),
             QuickLink(
                 title = "סיכומים",
                 url = "https://itim-latora.org/%D7%9B%D7%AA%D7%91%D7%99%D7%9D/%D7%A7%D7%98%D7%92%D7%95%D7%A8%D7%99%D7%94/%D7%A1%D7%99%D7%9B%D7%95%D7%9E%D7%99%D7%9D-%D7%94%D7%9C%D7%9B%D7%94-%D7%9E%D7%9E%D7%A7%D7%95%D7%A8%D7%95%D7%AA%D7%99%D7%94/",
-                icon = Icons.Default.School,
+                icon = R.drawable.halacha,
                 description = "סיכומים הלכה ממקורותיה"
             ),
             QuickLink(
                 title = "מועדים",
                 url = "https://itim-latora.org/%D7%9B%D7%AA%D7%91%D7%99%D7%9D/%D7%A7%D7%98%D7%92%D7%95%D7%A8%D7%99%D7%94/%D7%A7%D7%99%D7%A6%D7%95%D7%A8-%D7%94%D7%9C%D7%9B%D7%95%D7%AA-%D7%94%D7%9E%D7%95%D7%A2%D7%93%D7%99%D7%9D/",
-                icon = Icons.Default.CalendarMonth,
+                icon = R.drawable.moadim,
                 description = "קיצור הלכות המועדים"
             ),
             QuickLink(
                 title = "הלכה למעשה",
                 url = "https://itim-latora.org/%D7%9B%D7%AA%D7%91%D7%99%D7%9D/%D7%A7%D7%98%D7%92%D7%95%D7%A8%D7%99%D7%94/%D7%A1%D7%99%D7%9B%D7%95%D7%9E%D7%99%D7%9D-%D7%94%D7%9C%D7%9B%D7%94-%D7%9C%D7%9E%D7%A2%D7%A9%D7%94/",
-                icon = Icons.AutoMirrored.Filled.MenuBook,
+                icon = R.drawable.halacha,
                 description = "סיכומים הלכה למעשה"
             )
         )
@@ -179,11 +180,10 @@ fun QuickLinkCard(
                 .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Icon(
-                imageVector = quickLink.icon,
+            Image(
+                painter = painterResource(quickLink.icon),
                 contentDescription = null,
-                modifier = Modifier.size(40.dp),
-                tint = MaterialTheme.colorScheme.primary
+                modifier = Modifier.size(40.dp)
             )
             Spacer(modifier = Modifier.width(16.dp))
             Column(
@@ -263,7 +263,7 @@ fun QuickLinkCardPreview() {
             quickLink = QuickLink(
                 title = "מאמרים",
                 url = "https://itim-latora.org/category/articles",
-                icon = Icons.Default.Article,
+                icon = R.drawable.halacha,
                 description = "מאמרים ופרשנויות"
             ),
             onClick = {}

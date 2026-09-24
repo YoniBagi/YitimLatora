@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+keyStore/YitimLatora.jks
+keyStore/Key store password.docx
