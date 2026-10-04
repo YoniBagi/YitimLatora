@@ -7,14 +7,14 @@ plugins {
 
 android {
     namespace = "com.yitimlatora"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.yitimlatora"
         minSdk = 24
-        targetSdk = 36
-        versionCode = 3
-        versionName = "1.0.0"
+        targetSdk = 37
+        versionCode = 4
+        versionName = "1.0.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
