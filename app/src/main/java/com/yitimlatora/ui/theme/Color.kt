@@ -19,3 +19,7 @@ val TorahGold = Color(0xFFFFB300)
 val TorahGoldLight = Color(0xFFFFE54C)
 val TorahGoldDark = Color(0xFFC68400)
 
+// Light mode custom colors
+val TorahTurquoise = Color(0xFF004E58)
+val TorahGoldBorder = Color(0xFFCDBC75)
+

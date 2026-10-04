@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
 import com.yitimlatora.YitimLatoraApplication
+import com.yitimlatora.ui.theme.goldBarBorder
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 
@@ -32,6 +33,7 @@ fun BrowseScreen() {
         topBar = {
             TopAppBar(
                 title = { Text("עיון באתר") },
+                modifier = Modifier.goldBarBorder(),
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
@@ -48,4 +50,3 @@ fun BrowseScreen() {
         }
     }
 }
-

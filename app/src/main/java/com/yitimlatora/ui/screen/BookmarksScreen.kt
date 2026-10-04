@@ -16,6 +16,8 @@ import androidx.navigation.NavController
 import com.yitimlatora.YitimLatoraApplication
 import com.yitimlatora.data.model.Bookmark
 import com.yitimlatora.ui.navigation.Screen
+import com.yitimlatora.ui.theme.goldBarBorder
+import com.yitimlatora.ui.theme.goldCardBorder
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -32,6 +34,7 @@ fun BookmarksScreen(navController: NavController) {
         topBar = {
             TopAppBar(
                 title = { Text("סימניות") },
+                modifier = Modifier.goldBarBorder(),
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
@@ -127,6 +130,7 @@ fun BookmarkItem(
     Card(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
+        border = goldCardBorder(),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Row(

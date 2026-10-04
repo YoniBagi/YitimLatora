@@ -9,7 +9,9 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
@@ -22,15 +24,32 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = TorahBlue,
-    secondary = TorahGold,
-    tertiary = Pink40
+    primary = TorahTurquoise,
+    onPrimary = Color.White,
+    primaryContainer = Color.White,
+    onPrimaryContainer = TorahTurquoise,
+    secondary = TorahTurquoise,
+    onSecondary = Color.White,
+    secondaryContainer = Color.White,
+    onSecondaryContainer = TorahTurquoise,
+    tertiary = TorahTurquoise,
+    onTertiary = Color.White,
+    tertiaryContainer = Color.White,
+    onTertiaryContainer = TorahTurquoise,
+    background = Color.White,
+    onBackground = TorahTurquoise,
+    surface = Color.White,
+    onSurface = TorahTurquoise,
+    surfaceVariant = Color.White,
+    onSurfaceVariant = TorahTurquoise,
+    outline = TorahGoldBorder,
+    outlineVariant = TorahGoldBorder
 )
 
 @Composable
 fun YitimLatoraTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -51,10 +70,11 @@ fun YitimLatoraTheme(
         }
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+    CompositionLocalProvider(LocalAppDarkTheme provides darkTheme) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = if (darkTheme) Typography else LightTypography,
+            content = content
+        )
+    }
 }
-

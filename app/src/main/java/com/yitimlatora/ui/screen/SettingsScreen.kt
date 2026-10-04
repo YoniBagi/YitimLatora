@@ -14,6 +14,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.yitimlatora.YitimLatoraApplication
 import com.yitimlatora.data.model.HistoryItem
+import com.yitimlatora.ui.theme.goldBarBorder
+import com.yitimlatora.ui.theme.goldCardBorder
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -52,6 +54,7 @@ fun SettingsScreen(navController: NavController) {
         topBar = {
             TopAppBar(
                 title = { Text("הגדרות") },
+                modifier = Modifier.goldBarBorder(),
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
@@ -75,8 +78,12 @@ fun SettingsScreen(navController: NavController) {
                 )
             }
             
+            // Text size card
             item {
-                Card(modifier = Modifier.fillMaxWidth()) {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    border = goldCardBorder()
+                ) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         Text(
                             "גודל טקסט: ${textSize}%",
@@ -99,6 +106,7 @@ fun SettingsScreen(navController: NavController) {
                 }
             }
             
+            // Dark mode card
             item {
                 Card(
                     onClick = {
@@ -107,7 +115,8 @@ fun SettingsScreen(navController: NavController) {
                             app.userPreferences.setDarkMode(darkMode)
                         }
                     },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    border = goldCardBorder()
                 ) {
                     Row(
                         modifier = Modifier
@@ -146,10 +155,12 @@ fun SettingsScreen(navController: NavController) {
                 )
             }
             
+            // Home page card
             item {
                 Card(
                     onClick = { showHomePageDialog = true },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    border = goldCardBorder()
                 ) {
                     Row(
                         modifier = Modifier
@@ -177,6 +188,7 @@ fun SettingsScreen(navController: NavController) {
                 }
             }
             
+            // JavaScript card
             item {
                 Card(
                     onClick = {
@@ -185,7 +197,8 @@ fun SettingsScreen(navController: NavController) {
                             app.userPreferences.setJavascriptEnabled(javascriptEnabled)
                         }
                     },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    border = goldCardBorder()
                 ) {
                     Row(
                         modifier = Modifier
@@ -224,10 +237,12 @@ fun SettingsScreen(navController: NavController) {
                 )
             }
             
+            // History card
             item {
                 Card(
                     onClick = { showHistorySheet = true },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    border = goldCardBorder()
                 ) {
                     Row(
                         modifier = Modifier
@@ -255,10 +270,12 @@ fun SettingsScreen(navController: NavController) {
                 }
             }
             
+            // Clear history card
             item {
                 Card(
                     onClick = { showClearHistoryDialog = true },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    border = goldCardBorder()
                 ) {
                     Row(
                         modifier = Modifier
@@ -291,8 +308,12 @@ fun SettingsScreen(navController: NavController) {
                 )
             }
             
+            // About card
             item {
-                Card(modifier = Modifier.fillMaxWidth()) {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    border = goldCardBorder()
+                ) {
                     Column(
                         modifier = Modifier.padding(16.dp),
                         verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -403,7 +424,7 @@ fun SettingsScreen(navController: NavController) {
                     ) {
                         Text(
                             "אין היסטוריה",
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            style = MaterialTheme.typography.bodyMedium
                         )
                     }
                 } else {
@@ -436,7 +457,8 @@ fun HistoryItemCard(
             )
             onNavigate()
         },
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
+        border = goldCardBorder()
     ) {
         Row(
             modifier = Modifier
@@ -483,4 +505,3 @@ private fun formatTimestamp(timestamp: Long): String {
         }
     }
 }
-

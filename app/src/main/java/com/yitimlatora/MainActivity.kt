@@ -10,13 +10,17 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.yitimlatora.ui.navigation.BottomNavItem
 import com.yitimlatora.ui.navigation.Navigation
 import com.yitimlatora.ui.navigation.Screen
+import com.yitimlatora.ui.theme.LocalAppDarkTheme
+import com.yitimlatora.ui.theme.TorahTurquoise
 import com.yitimlatora.ui.theme.YitimLatoraTheme
+import com.yitimlatora.ui.theme.goldBarBorder
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +50,15 @@ fun MainScreen() {
     Scaffold(
         bottomBar = {
             if (showBottomNav) {
-                NavigationBar {
+                val darkTheme = LocalAppDarkTheme.current
+                NavigationBar(
+                    modifier = Modifier.goldBarBorder(),
+                    containerColor = if (darkTheme) {
+                        NavigationBarDefaults.containerColor
+                    } else {
+                        Color.White
+                    }
+                ) {
                     BottomNavItem.items.forEach { item ->
                         NavigationBarItem(
                             icon = {
@@ -57,6 +69,17 @@ fun MainScreen() {
                             },
                             label = { Text(item.title) },
                             selected = currentRoute == item.screen.route,
+                            colors = if (darkTheme) {
+                                NavigationBarItemDefaults.colors()
+                            } else {
+                                NavigationBarItemDefaults.colors(
+                                    selectedIconColor = TorahTurquoise,
+                                    selectedTextColor = TorahTurquoise,
+                                    unselectedIconColor = TorahTurquoise,
+                                    unselectedTextColor = TorahTurquoise,
+                                    indicatorColor = Color.White
+                                )
+                            },
                             onClick = {
                                 if (item == BottomNavItem.Partner) {
                                     // Navigate to partner webview
@@ -82,7 +105,7 @@ fun MainScreen() {
             }
         }
     ) { paddingValues ->
-        Box (Modifier.padding(paddingValues = paddingValues)) {
+        Box(Modifier.padding(paddingValues = paddingValues)) {
             Navigation(navController = navController)
         }
     }

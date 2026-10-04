@@ -23,6 +23,7 @@ import androidx.navigation.compose.rememberNavController
 import com.yitimlatora.R
 import com.yitimlatora.data.model.QuickLink
 import com.yitimlatora.ui.navigation.Screen
+import com.yitimlatora.ui.theme.goldCardBorder
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -80,7 +81,7 @@ fun HomeScreen(navController: NavController) {
             QuickLink(
                 title = "מועדים",
                 url = "https://itim-latora.org/%D7%9B%D7%AA%D7%91%D7%99%D7%9D/%D7%A7%D7%98%D7%92%D7%95%D7%A8%D7%99%D7%94/%D7%A7%D7%99%D7%A6%D7%95%D7%A8-%D7%94%D7%9C%D7%9B%D7%95%D7%AA-%D7%94%D7%9E%D7%95%D7%A2%D7%93%D7%99%D7%9D/",
-                icon = R.drawable.moadim,
+                icon = R.drawable.halacha,
                 description = "קיצור הלכות המועדים"
             ),
             QuickLink(
@@ -133,7 +134,8 @@ fun WelcomeCard() {
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer
-        )
+        ),
+        border = goldCardBorder()
     ) {
         Column(
             modifier = Modifier
@@ -172,6 +174,7 @@ fun QuickLinkCard(
     Card(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
+        border = goldCardBorder(),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Row(
@@ -215,7 +218,8 @@ fun BrowseCard(navController: NavController) {
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.secondaryContainer
-        )
+        ),
+        border = goldCardBorder()
     ) {
         Row(
             modifier = Modifier

@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.yitimlatora.R
+import com.yitimlatora.ui.theme.goldCardBorder
 
 @Composable
 fun AboutScreen(navController: NavController) {
@@ -36,7 +37,8 @@ fun AboutScreen(navController: NavController) {
                     modifier = Modifier.fillMaxWidth(),
                     colors = CardDefaults.cardColors(
                         containerColor = MaterialTheme.colorScheme.primaryContainer
-                    )
+                    ),
+                    border = goldCardBorder()
                 ) {
                     Column(
                         modifier = Modifier
@@ -139,6 +141,7 @@ fun AboutScreen(navController: NavController) {
 fun AboutSectionCard(title: String, content: String) {
     Card(
         modifier = Modifier.fillMaxWidth(),
+        border = goldCardBorder(),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
@@ -171,4 +174,3 @@ fun AboutScreenPreview() {
         AboutScreen(navController = rememberNavController())
     }
 }
-

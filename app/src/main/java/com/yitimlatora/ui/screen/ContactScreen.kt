@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.yitimlatora.ui.theme.goldCardBorder
 
 @Composable
 fun ContactScreen(navController: NavController) {
@@ -44,7 +45,8 @@ fun ContactScreen(navController: NavController) {
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
-                )
+                ),
+                border = goldCardBorder()
             ) {
                 Column(
                     modifier = Modifier
@@ -165,12 +167,13 @@ fun ContactScreen(navController: NavController) {
                 )
             }
             
-            // Contact Info
+            // Contact Info Card
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.secondaryContainer
-                )
+                ),
+                border = goldCardBorder()
             ) {
                 Column(
                     modifier = Modifier
@@ -203,4 +206,3 @@ fun ContactScreenPreview() {
         ContactScreen(navController = rememberNavController())
     }
 }
-
