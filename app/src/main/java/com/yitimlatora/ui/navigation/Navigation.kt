@@ -47,6 +47,15 @@ fun Navigation(navController: NavHostController) {
             val url = URLDecoder.decode(encodedUrl, "UTF-8")
             WebViewScreen(navController, url = url)
         }
+
+        composable(
+            route = Screen.PdfViewer.route,
+            arguments = listOf(navArgument("url") { type = NavType.StringType })
+        ) { backStackEntry ->
+            // Navigation already decodes path arguments; decoding again would break %-escapes in the URL.
+            val url = backStackEntry.arguments?.getString("url") ?: ""
+            PdfViewerScreen(navController, url = url)
+        }
     }
 }
 

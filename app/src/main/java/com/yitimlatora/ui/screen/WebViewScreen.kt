@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
+import android.os.Bundle
 import android.os.Environment
 import android.os.Message
 import android.webkit.CookieManager
@@ -18,15 +19,17 @@ import android.webkit.WebViewClient
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
+import com.yitimlatora.ui.navigation.Screen
 
 private data class DownloadParams(
     val url: String,
@@ -43,18 +46,6 @@ private fun isPdf(uri: Uri): Boolean {
     return path.endsWith(".pdf")
 }
 
-/**
- * Opens a PDF in a Chrome Custom Tab.
- * Falls back to Intent.ACTION_VIEW when no browser supports Custom Tabs.
- */
-private fun openPdf(context: Context, uri: Uri) {
-    runCatching {
-        CustomTabsIntent.Builder().build().launchUrl(context, uri)
-    }.onFailure {
-        runCatching { context.startActivity(Intent(Intent.ACTION_VIEW, uri)) }
-    }
-}
-
 /** Opens an external link (tel:, mailto:, and similar) with the matching Intent. */
 private fun openExternal(context: Context, uri: Uri) {
     runCatching { context.startActivity(Intent(Intent.ACTION_VIEW, uri)) }
@@ -63,14 +54,13 @@ private fun openExternal(context: Context, uri: Uri) {
 /**
  * Routes a main-frame navigation from a user tap, or a new window (target="_blank"):
  * - non-http/https scheme → external Intent
- * - .pdf path             → Custom Tab
+ * - .pdf path             → in-app PDF viewer
  * - otherwise             → load in the given WebView
  */
-private fun routeUri(webView: WebView, uri: Uri) {
-    val context = webView.context
+private fun routeUri(webView: WebView, uri: Uri, openPdf: (Uri) -> Unit) {
     when {
-        uri.scheme !in HTTP_SCHEMES -> openExternal(context, uri)
-        isPdf(uri)                  -> openPdf(context, uri)
+        uri.scheme !in HTTP_SCHEMES -> openExternal(webView.context, uri)
+        isPdf(uri)                  -> openPdf(uri)
         else                        -> webView.loadUrl(uri.toString())
     }
 }
@@ -104,6 +94,16 @@ fun WebViewScreen(
 ) {
     val context = LocalContext.current
     val webView = remember { mutableStateOf<WebView?>(null) }
+    // The WebView is recreated when returning from the PDF viewer; this keeps its history and current page.
+    val webViewState = rememberSaveable { Bundle() }
+    DisposableEffect(Unit) {
+        onDispose { webView.value?.saveState(webViewState) }
+    }
+    val openPdf: (Uri) -> Unit = { uri ->
+        navController.navigate(Screen.PdfViewer.createRoute(uri.toString())) {
+            launchSingleTop = true
+        }
+    }
 
     // ── Storage permission for API 24–28 ─────────────────────────────────────
     val pendingDownload = remember { mutableStateOf<DownloadParams?>(null) }
@@ -152,9 +152,9 @@ fun WebViewScreen(
                         // Subframe (iframe, embed): in-page display — leave it alone
                         if (!request.isForMainFrame) return false
 
-                        // Main-frame tap on a PDF URL → Custom Tab
+                        // Main-frame tap on a PDF URL → in-app PDF viewer
                         if (request.hasGesture() && isPdf(uri)) {
-                            openPdf(view.context, uri)
+                            openPdf(uri)
                             return true
                         }
 
@@ -181,7 +181,7 @@ fun WebViewScreen(
                                 popupView: WebView,
                                 request: WebResourceRequest
                             ): Boolean {
-                                routeUri(view, request.url)  // view = the main WebView
+                                routeUri(view, request.url, openPdf)  // view = the main WebView
                                 popupView.destroy()
                                 return true
                             }
@@ -197,7 +197,7 @@ fun WebViewScreen(
                 // ── Files the site sends as attachments ─────────────────
                 setDownloadListener { downloadUrl, userAgent, contentDisposition, mimeType, _ ->
                     // PDF: in-page display can fire this listener.
-                    // Do not open or download, so a Custom Tab is not launched without a tap.
+                    // Do not open or download, so the PDF viewer is not opened without a tap.
                     val uri = Uri.parse(downloadUrl)
                     if (mimeType == "application/pdf" || isPdf(uri)) return@setDownloadListener
 
@@ -214,12 +214,11 @@ fun WebViewScreen(
                     }
                 }
 
+                if (webViewState.isEmpty || restoreState(webViewState) == null) {
+                    loadUrl(url)
+                }
+
                 webView.value = this
-            }
-        },
-        update = { webViewInstance ->
-            if (webViewInstance.url != url) {
-                webViewInstance.loadUrl(url)
             }
         }
     )

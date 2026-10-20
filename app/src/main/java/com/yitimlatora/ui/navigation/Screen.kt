@@ -13,5 +13,11 @@ sealed class Screen(val route: String) {
             return "webview/${java.net.URLEncoder.encode(url, "UTF-8")}"
         }
     }
+
+    object PdfViewer : Screen("pdf/{url}") {
+        fun createRoute(url: String): String {
+            return "pdf/${java.net.URLEncoder.encode(url, "UTF-8")}"
+        }
+    }
 }
 

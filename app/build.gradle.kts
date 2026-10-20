@@ -82,9 +82,6 @@ dependencies {
     
     // HTML Parsing
     implementation(libs.jsoup)
-
-    // Browser (Custom Tabs for PDF)
-    implementation(libs.browser)
     
     // Testing
     testImplementation(libs.junit)

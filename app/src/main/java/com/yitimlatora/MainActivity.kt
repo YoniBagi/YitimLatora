@@ -44,6 +44,7 @@ fun MainScreen() {
     val showBottomNav = when {
         currentRoute == null -> true
         currentRoute.startsWith("webview/") -> false
+        currentRoute.startsWith("pdf/") -> false
         else -> true
     }
     
