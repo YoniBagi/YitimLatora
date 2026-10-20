@@ -1,13 +1,16 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.ksp)
 }
 
 android {
     namespace = "com.yitimlatora"
-    compileSdk = 37
+    compileSdk {
+    version = release(37) {
+        minorApiLevel = 0
+    }
+}
 
     defaultConfig {
         applicationId = "com.yitimlatora"
@@ -32,9 +35,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+
     buildFeatures {
         compose = true
     }
@@ -71,7 +72,7 @@ dependencies {
     // Database
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
-    kapt(libs.room.compiler)
+    ksp(libs.room.compiler)
     
     // DataStore
     implementation("androidx.datastore:datastore-preferences:1.0.0")
